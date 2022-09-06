@@ -6,10 +6,12 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -20,8 +22,8 @@ import javax.swing.JButton;
 public class Customer_App {
 
 	private JFrame frame;
-	private JTextField txtEnterId;
-	private JPasswordField passwordField;
+	private JTextField id;
+	private JPasswordField password;
 
 	/**
 	 * Launch the application.
@@ -63,16 +65,16 @@ public class Customer_App {
 		lblNewLabel_1.setBounds(106, 251, 170, 43);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		txtEnterId = new JTextField();
-		txtEnterId.setText("Enter ID");
-		txtEnterId.setToolTipText("Enter ID");
-		txtEnterId.setBounds(106, 304, 170, 29);
-		frame.getContentPane().add(txtEnterId);
-		txtEnterId.setColumns(10);
+		id = new JTextField();
+		id.setText("Enter ");
+		id.setToolTipText("Enter ");
+		id.setBounds(106, 304, 170, 29);
+		frame.getContentPane().add(id);
+		id.setColumns(10);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(106, 355, 170, 29);
-		frame.getContentPane().add(passwordField);
+		password = new JPasswordField();
+		password.setBounds(106, 355, 170, 29);
+		frame.getContentPane().add(password);
 		
 		JLabel lblNewLabel = new JLabel("ID :");
 		lblNewLabel.setBounds(72, 307, 50, 22);
@@ -88,7 +90,14 @@ public class Customer_App {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("I am  clicked");
+				if(id.getText().equals("Danny") && Arrays.equals(password.getPassword(),"hello".toCharArray())) {
+					System.out.println("Welcome Danny");
+					welcomePanel.setVisible(false);
+				}
+				else {
+					JOptionPane.showMessageDialog(null,"you failed to log in");
+				}
+				
 				
 			}
 			
@@ -104,6 +113,8 @@ public class Customer_App {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	
+
 
 	
 
